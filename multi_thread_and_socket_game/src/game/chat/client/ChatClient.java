@@ -1,4 +1,4 @@
-package game.client;
+package game.chat.client;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;

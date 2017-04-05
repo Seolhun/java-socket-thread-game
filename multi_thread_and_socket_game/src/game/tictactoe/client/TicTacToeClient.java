@@ -1,4 +1,4 @@
-package game.client;
+package game.tictactoe.client;
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
@@ -7,6 +7,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.Scanner;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -43,7 +44,7 @@ public class TicTacToeClient {
     private Square[] board = new Square[9];
     private Square currentSquare;
 
-    private static int PORT = 8901;
+    private static int PORT;
     private Socket socket;
     private BufferedReader in;
     private PrintWriter out;
@@ -53,11 +54,14 @@ public class TicTacToeClient {
      * GUI and registering GUI listeners.
      */
     public TicTacToeClient(String serverAddress) throws Exception {
-
+    	Scanner scan=new Scanner(System.in);
+    	System.out.println("연결시킬 서버의 포트를 입력하세요.");
+    	PORT=scan.nextInt();
+    	scan.close();
+    	
         // Setup networking
         socket = new Socket(serverAddress, PORT);
-        in = new BufferedReader(new InputStreamReader(
-            socket.getInputStream()));
+        in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         out = new PrintWriter(socket.getOutputStream(), true);
 
         // Layout GUI
