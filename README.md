@@ -27,8 +27,9 @@
 
 
 ## 4. 실행방법
-- 1. ChatServer를 실행한다.
-- 2. ChatClient를 실행한다.(2개)
-- 3. ChatClient에 Address(127.0.0.1) - 로컬환경, 혹은 ChatServer를 실행한 Address를 입력한다.
-- 4. 닉네임을 입력한다.
-- 5. 텍스트를 입력한다.
+	####실행 순서.	
+	- 1. ChatServer를 실행한다.
+	- 2. ChatClient를 실행한다.(2개)
+	- 3. ChatClient에 Address(127.0.0.1) - 로컬환경, 혹은 ChatServer를 실행한 Address를 입력한다.
+	- 4. 닉네임을 입력한다.
+	- 5. 텍스트를 입력한다.
