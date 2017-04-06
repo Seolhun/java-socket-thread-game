@@ -115,6 +115,8 @@ public class ChatClient implements ActionListener{
                 // 서버에서오는 요청을 분석한다.
      			protocol = Integer.parseInt(st.nextToken());	
         	}
+        	String writer="";
+			String content="";
         	
 			switch (protocol) {
 			case Protocol.SUBMITNAME:
@@ -128,11 +130,16 @@ public class ChatClient implements ActionListener{
 				textField.setEditable(true);
 				System.out.println("return : 채팅창이 수락되었습니다.");
 				break;
-			case Protocol.READY:
-				String writer=st.nextToken();
-				String content=st.nextToken();
+			case Protocol.MESSAGE:
+				writer=st.nextToken();
+				content=st.nextToken();
 				messageArea.append(writer+" : "+content + "\n");
 				break;
+//			case Protocol.READY:
+//				writer=st.nextToken();
+//				content=st.nextToken();
+//				messageArea.append(writer+" : "+content + "\n");
+//				break;
 //			case Protocol.ALLREADY:
 //				String writer=st.nextToken();
 //				String content=st.nextToken();
