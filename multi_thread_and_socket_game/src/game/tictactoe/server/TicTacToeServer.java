@@ -25,15 +25,14 @@ import java.util.Scanner;
  * players to play.
  */
 public class TicTacToeServer {
-	static int PORT=0;
 	
     public static void main(String[] args) throws Exception {
     	Scanner scan=new Scanner(System.in);
     	System.out.println("서버로 작동시킬 포트를 입력하세요.");
-    	PORT=scan.nextInt();
+    	int port=scan.nextInt();
     	scan.close();
     	
-        ServerSocket serverSocket = new ServerSocket(PORT);
+        ServerSocket serverSocket = new ServerSocket(port);
         System.out.println("가위바위보 서버가 작동되었습니다.");
         try {
             while (true) {

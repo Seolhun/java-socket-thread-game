@@ -44,7 +44,6 @@ public class TicTacToeClient {
     private Square[] board = new Square[9];
     private Square currentSquare;
 
-    private static int PORT;
     private Socket socket;
     private BufferedReader in;
     private PrintWriter out;
@@ -56,11 +55,11 @@ public class TicTacToeClient {
     public TicTacToeClient(String serverAddress) throws Exception {
     	Scanner scan=new Scanner(System.in);
     	System.out.println("연결시킬 서버의 포트를 입력하세요.");
-    	PORT=scan.nextInt();
+    	int port=scan.nextInt();
     	scan.close();
     	
         // Setup networking
-        socket = new Socket(serverAddress, PORT);
+        socket = new Socket(serverAddress, port);
         in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         out = new PrintWriter(socket.getOutputStream(), true);
 
@@ -152,7 +151,8 @@ public class TicTacToeClient {
      * it with an Icon, presumably an X or O.
      */
     static class Square extends JPanel {
-        JLabel label = new JLabel((Icon)null);
+		private static final long serialVersionUID = -2636515660676950219L;
+		JLabel label = new JLabel((Icon)null);
 
         public Square() {
             setBackground(Color.white);
